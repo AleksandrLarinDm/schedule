@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "281694054716",
+    "firebase_url": "https://institute-schedule.firebaseio.com",
+    "project_id": "institute-schedule",
+    "storage_bucket": "institute-schedule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:281694054716:android:abd9067c3c4caf0e7fd639",
+        "android_client_info": {
+          "package_name": "com.example.schedule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "281694054716-8io54e7qkvqtb3se2g2u7ajddiojprt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn-BBnOkwwFeoa4rlwpTY-drUYfURoyqw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "281694054716-8io54e7qkvqtb3se2g2u7ajddiojprt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
