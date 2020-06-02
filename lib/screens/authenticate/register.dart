@@ -26,17 +26,21 @@ class _RegisterState extends State<Register> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(71, 79, 63, 1),
         elevation: 0.0,
-        title: Text('Sign up',
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(30.0)
+              )
+          ),
+        title: Text('Реєстрація',
             style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1),
-                fontSize: 25.0,
-                fontWeight: FontWeight.w900)),
-        textTheme: GoogleFonts.montserratTextTheme(),
+                fontSize: 19.0,
+                fontWeight: FontWeight.w400)),
         actions: <Widget>[
           FlatButton.icon(onPressed: (){
             widget.toggleView();
           },
               icon: Icon(Icons.person, color: Color.fromRGBO(223, 215, 204, 1)),
-              label: Text('Sign In', style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 20.0)))
+              label: Text('Увійти', style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 18.0)))
         ],
       ),
       body: Container(
@@ -50,10 +54,10 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                validator: (val) => val.isEmpty ? 'Enter your e-mail!' : null,
+                validator: (val) => val.isEmpty ? 'Дані введені некорректно!' : null,
                 decoration: new InputDecoration(
-                    hintText: 'Type here...',
-                    labelText: 'E-mail',
+                    hintText: 'Введіть тут...',
+                    labelText: 'E-пошта',
                     labelStyle: TextStyle(
                         color: myFocusNode.hasFocus ? Color.fromRGBO(71, 79, 63, 1) : Color.fromRGBO(111, 109, 97, 1)
                     ),
@@ -69,10 +73,10 @@ class _RegisterState extends State<Register> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                validator: (val) => val.length < 6 ? 'Your password should be 6 charachters at least!' : null,
+                validator: (val) => val.length < 6 ? 'Пароль має бути не менш ніж 6 символів!' : null,
                 decoration: new InputDecoration(
-                    hintText: 'Type here...',
-                    labelText: 'Password',
+                    hintText: 'Введіть тут...',
+                    labelText: 'Пароль',
                     labelStyle: TextStyle(
                         color: myFocusNode.hasFocus ? Color.fromRGBO(71, 79, 63, 1) : Color.fromRGBO(111, 109, 97, 1)
                     ),
@@ -89,10 +93,10 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               TextFormField(
                 keyboardType: TextInputType.numberWithOptions(),
-                validator: (val) => val.length > 3 ? 'Group counts 3 numbers only!' : null,
+                validator: (val) => val.length > 3 ? 'Номер групи складається з трьох цифр!' : null,
                 decoration: new InputDecoration(
-                    hintText: 'Type here...',
-                    labelText: 'Group number',
+                    hintText: 'Введіть тут...',
+                    labelText: 'Номер групи',
                     labelStyle: TextStyle(
                         color: myFocusNode.hasFocus ? Color.fromRGBO(71, 79, 63, 1) : Color.fromRGBO(111, 109, 97, 1)
                     ),
@@ -108,7 +112,7 @@ class _RegisterState extends State<Register> {
               SizedBox(height: 20.0),
               RaisedButton(
                 color: Color.fromRGBO(71, 79, 63, 1),
-                child: Text("Register", style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1))),
+                child: Text("Зареєструватись", style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 18.0)),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
                     dynamic result = await _authService.registerWithEmailAndPassword(email, password);

@@ -26,22 +26,26 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(223, 215, 204, 1),
+      backgroundColor: Color.fromRGBO(229, 229, 229, 1),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(71, 79, 63, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(30.0)
+          )
+        ),
+        backgroundColor: Color.fromRGBO(85,85,85, 1),
         elevation: 0.0,
-        title: Text('Sign In',
+        title: Text('Вхід до системи',
             style: TextStyle(color:
-            Color.fromRGBO(223, 215, 204, 1),
-                fontSize: 25.0,
-                fontWeight: FontWeight.w900)),
-        textTheme: GoogleFonts.montserratTextTheme(),
+            Color.fromRGBO(229, 229, 229, 1),
+                fontSize: 19.0,
+                fontWeight: FontWeight.w400)),
         actions: <Widget>[
           FlatButton.icon(onPressed: (){
               widget.toggleView();
             },
               icon: Icon(Icons.person, color: Color.fromRGBO(223, 215, 204, 1)),
-              label: Text('Register', style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 20.0)))
+              label: Text('Реєстрація', style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 18.0)))
         ],
       ),
       body: Container(
@@ -50,15 +54,18 @@ class _SignInState extends State<SignIn> {
           key: _formKey,
           child: Column(
             children: <Widget>[
+              SizedBox(
+                height: 40,
+              ),
               Center(
                 child: Image.network("http://www.viti.edu.ua/img/viti.png"),
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                validator: (val) => val.isEmpty ? 'Enter your e-mail!' : null,
+                validator: (val) => val.isEmpty ? 'Дані введено некорректно!' : null,
                 decoration: new InputDecoration(
-                    hintText: 'Type here...',
-                    labelText: 'E-mail',
+                    hintText: 'Введіть тут...',
+                    labelText: 'Е-пошта',
                     labelStyle: TextStyle(
                       color: myFocusNode.hasFocus ? Color.fromRGBO(71, 79, 63, 1) : Color.fromRGBO(111, 109, 97, 1)
                     ),
@@ -74,10 +81,10 @@ class _SignInState extends State<SignIn> {
               ),
               SizedBox(height: 20.0),
               TextFormField(
-                validator: (val) => val.length < 6 ? 'Your password should be 6 charachters at least!' : null,
+                validator: (val) => val.length < 6 ? 'Пароль має бути не менш ніж 6 символів!' : null,
                 decoration: new InputDecoration(
-                    hintText: 'Type here...',
-                    labelText: 'Password',
+                    hintText: 'Введіть тут...',
+                    labelText: 'Пароль',
                     labelStyle: TextStyle(
                         color: myFocusNode.hasFocus ? Color.fromRGBO(71, 79, 63, 1) : Color.fromRGBO(111, 109, 97, 1)
                     ),
@@ -94,7 +101,7 @@ class _SignInState extends State<SignIn> {
               SizedBox(height: 20.0),
               RaisedButton(
                 color: Color.fromRGBO(71, 79, 63, 1),
-                child: Text("Sign In", style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1))),
+                child: Text("Увійти", style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1))),
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
                     dynamic result = await _authService.signInWithEmailAndPassword(email, password);

@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: Wrapper(),
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(textTheme: GoogleFonts.montserratTextTheme()),
+          theme: ThemeData(fontFamily: 'Montserrat-Regular'),
       ),
     );
   }

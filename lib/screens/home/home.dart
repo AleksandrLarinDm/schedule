@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:schedule/calendar/Calendar.dart';
 import 'package:schedule/services/auth.dart';
 
 class Home extends StatelessWidget {
@@ -7,20 +8,25 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(223, 215, 204, 1),
+      backgroundColor: Color.fromRGBO(229, 229, 229, 1),
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(71, 79, 63, 1),
+          backgroundColor: Color.fromRGBO(85,85,85, 1),
           elevation: 0.0,
-          title: Text('Home', style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 20.0),),
-          textTheme: GoogleFonts.montserratTextTheme(),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(30.0)
+              )
+          ),
+          title: Text('Домашня сторінка', style: TextStyle(color: Color.fromRGBO(229, 229, 229, 1), fontSize: 20.0, ),),
           actions: <Widget>[
             FlatButton.icon(onPressed: () async{
               await _auth.signOut();
             },
-                icon: Icon(Icons.person, color: Color.fromRGBO(223, 215, 204, 1)),
-                label: Text("Log out", style: TextStyle(color: Color.fromRGBO(223, 215, 204, 1), fontSize: 20.0)))
+                icon: Icon(Icons.person, color: Color.fromRGBO(229, 229, 229, 1)),
+                label: Text("Вийти", style: TextStyle(color: Color.fromRGBO(229, 229, 229, 1), fontSize: 20.0)))
           ],
-      )
+      ),
+      body: Calendar(),
     );
   }
 }
